@@ -1,11 +1,14 @@
 ﻿using BankLedger;
 
-Account testAccount = new Account("John Doe", 1750);
+Account testAccount = new Account("Jane Doe", 3000);
 
-Console.WriteLine(testAccount.Owner);
-Console.WriteLine(testAccount.Balance);
-Console.WriteLine(testAccount.Deposit(200));
-Console.WriteLine(testAccount.Deposit(0));
-Console.WriteLine(testAccount.Withdraw(100));
-Console.WriteLine(testAccount.Withdraw(2000));
-Console.WriteLine(testAccount.ToString());
+Ledger testLedger = new Ledger(testAccount);
+
+testLedger.Record("Deposit", 500);
+testLedger.Record("Withdrawal", 250);
+testLedger.Record("Withdrawal", 5000);
+testLedger.Record("Deposit", -50);
+
+Console.WriteLine($"Transactions accepted: {testLedger.Count}");
+
+testLedger.PrintStatement();
