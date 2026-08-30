@@ -1,9 +1,11 @@
 ﻿using BankLedger;
 
-Transaction testTransaction = new Transaction(1, "Deposit", 2000);
+Account testAccount = new Account("John Doe", 1750);
 
-Console.WriteLine(testTransaction.Id);
-Console.WriteLine(testTransaction.Kind);
-Console.WriteLine(testTransaction.Amount);
-Console.WriteLine(testTransaction.IsDeposit());
-Console.WriteLine(testTransaction.Describe());
+Console.WriteLine(testAccount.Owner);
+Console.WriteLine(testAccount.Balance);
+Console.WriteLine(testAccount.Deposit(200));
+Console.WriteLine(testAccount.Deposit(0));
+Console.WriteLine(testAccount.Withdraw(100));
+Console.WriteLine(testAccount.Withdraw(2000));
+Console.WriteLine(testAccount.ToString());
