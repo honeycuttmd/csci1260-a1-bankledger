@@ -75,10 +75,11 @@ public class Ledger
 
     public void PrintStatement()
     {
+        // spacing follows the character-for-character expected output example
         Console.WriteLine("========================================");
-        Console.WriteLine($" STATEMENT FOR {_account.Owner.ToUpper()}");
+        Console.WriteLine($"  STATEMENT FOR {_account.Owner.ToUpper()}");
         Console.WriteLine("========================================");
-        Console.WriteLine(" ID TYPE AMOUNT");
+        Console.WriteLine("  ID  TYPE              AMOUNT");
         Console.WriteLine("----------------------------------------");
         
         foreach (Transaction transaction in _history)
@@ -87,9 +88,9 @@ public class Ledger
         }
 
         Console.WriteLine("----------------------------------------");
-        Console.WriteLine(" {0,-17}${1,10:N2}", "Deposits:", Total("Deposit"));
-        Console.WriteLine(" {0,-17}${1,10:N2}", "Withdrawals:", Total("Withdrawal"));
-        Console.WriteLine(" {0,-17}${1,10:N2}", "Ending balance:", _account.Balance);
+        Console.WriteLine("  {0,-17}${1,10:N2}", "Deposits:", Total("Deposit"));
+        Console.WriteLine("  {0,-17}${1,10:N2}", "Withdrawals:", Total("Withdrawal"));
+        Console.WriteLine("  {0,-17}${1,10:N2}", "Ending balance:", _account.Balance);
         Console.WriteLine("========================================");
     }
 }
